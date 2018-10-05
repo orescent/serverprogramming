@@ -6,8 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 import org.springframework.data.repository.CrudRepository;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Book {
@@ -21,6 +21,7 @@ public class Book {
 	private String isbn;
 	private float price;
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "categoryid")
 	private Category category;
 	
