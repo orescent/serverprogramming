@@ -5,7 +5,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
 import serv.prog.Bookstore.domain.CategoryRepository;
+import serv.prog.Bookstore.domain.User;
+import serv.prog.Bookstore.domain.UserRepository;
 import serv.prog.Bookstore.domain.Book;
 import serv.prog.Bookstore.domain.BookRepository;
 import serv.prog.Bookstore.domain.Category;
@@ -17,6 +20,8 @@ public class BookstoreApplication {
 	private BookRepository repository;
 	@Autowired
 	private CategoryRepository crepository;
+	@Autowired
+	private UserRepository urepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
@@ -38,6 +43,11 @@ public class BookstoreApplication {
 			
 			repository.save(book1);
 			repository.save(book2);
+			
+			User user1 = new User("user", "$2a$10$PmWNlpsjKibZqg3.rWhts.ma/OJC8d9Bv/U3rcIhL.jQGFHBloSTi", "USER");
+			User user2 = new User("admin", "$2a$10$KtOoz491q3niRGIqGrZ4KeQI4bCOrix8CFuRSmdfslhKitoSF5wam", "ADMIN");
+			urepository.save(user1);
+			urepository.save(user2);
 		};
 	}
 }
