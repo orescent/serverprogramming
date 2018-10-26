@@ -19,7 +19,7 @@ public class Book {
 	private String author;
 	private int year;
 	private String isbn;
-	private float price;
+	private double price;
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "categoryid")
@@ -37,7 +37,7 @@ public class Book {
 		this.price = price;
 	}
 	
-	public Book(String title, String author, int year, String isbn, float price, Category category) {
+	public Book(String title, String author, int year, String isbn, double price, Category category) {
 		this.title = title;
 		this.author = author;
 		this.year = year;
@@ -86,11 +86,11 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
